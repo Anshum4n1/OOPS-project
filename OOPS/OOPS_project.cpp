@@ -32,23 +32,48 @@ class guess                                           // class guess
     }
     void guessing()                                                         // taking input from user
     {
+        char ch;
+        
         do
         {
             cout << "Guess the number between 1 and 1000!!!" << endl;
             cin >> input;
             k++;
-            if (input < j.r)
+            if (input < j->r)
                 cout<< "Too low try again!!" << endl;
-            else if (input > j.r)
+            else if (input > j->r)
                 cout << "Too high try again!!" << endl;
-            else
+            else{int cnt =0;
                 cout << "Excellent you guessed the number would you like to play again!!" << endl;
-        } while (input != j.r);
+
+                label:
+                cout<<"press Y to try again and N to exit the game";
+                cin>>ch;
+                if (ch=='Y'||ch=='y'){
+                    guessing();
+                }
+                else if (ch=='N'||ch=='n'){
+                    exit(0);
+                }
+                else{ cout<<"enter a valid choice";
+                count++;
+                goto label;
+                }
+                
+                if (count>=3){
+                    cout<<"andha he kya bsdk🤬"<<endl; // win + ;😎
+                    exit(0);
+                }
+            
+            }
+        } while (input != j->r);
+
         
         if (k < 10)
             cout << "Either you know the secret or you got lucky!!" << endl;
         else if (k == 10)
             cout << "haha you know the secret!!" << endl;
+        
         else
         {
             try_again();
@@ -101,7 +126,9 @@ class guess                                           // class guess
     
     void solution()                                                    // step by step solution to guess the number in 10 guesses
     {
-        cout<<"Our number was "<<j.r;
+
+        cout<<"Our number was "<<j->r;
+
         cout << " So the following steps should have been followed for the solution" << endl
              << endl;
         int low = 1, mid, high = 1000;
@@ -110,22 +137,22 @@ class guess                                           // class guess
         {
             mid = (low + high) / 2;
             cout << "Take: " << mid << endl;
-            if (mid == j.r)
+            if (mid == j->r)
             {
                 break;
             }
-            else if (mid < j.r)
+            else if (mid < j->r)
             {
                 cout << counter+1 << ".The number is too low so take a number between " << mid + 1 << " & " << high << endl;
                 low = mid + 1;
             }
-            else if (j.r < mid)
+            else if (j->r < mid)
             {
                 cout << counter+1 << ".The number is too high so take a number between " << high - 1 << " & " << mid << endl;
                 high = mid - 1;
             }
             counter++;
-        } while (mid != j.r);
+        } while (mid != j->r);
         cout << "So we found " << mid << " in " << counter << " attempts :)" << endl;
     }
 
