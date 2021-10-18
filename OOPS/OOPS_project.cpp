@@ -45,6 +45,7 @@ class guess                                           // class guess
                 cout << "Too high try again!!" << endl;
             else{int cnt =0;
                 cout << "Excellent you guessed the number would you like to play again!!" << endl;
+
                 label:
                 cout<<"press Y to try again and N to exit the game";
                 cin>>ch;
@@ -66,6 +67,7 @@ class guess                                           // class guess
             
             }
         } while (input != j->r);
+
         
         if (k < 10)
             cout << "Either you know the secret or you got lucky!!" << endl;
@@ -124,7 +126,9 @@ class guess                                           // class guess
     
     void solution()                                                    // step by step solution to guess the number in 10 guesses
     {
+
         cout<<"Our number was "<<j->r;
+
         cout << " So the following steps should have been followed for the solution" << endl
              << endl;
         int low = 1, mid, high = 1000;
