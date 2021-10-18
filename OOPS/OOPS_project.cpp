@@ -2,35 +2,35 @@
 using namespace std;
 class guess;
 
-class random
+class random                                          // class random
 {
 private:
     int r;
 
 public:
-    random()
+    random()                                          // generating a random number
     {
         srand(time(NULL));
         r = 1 + (rand() % 1000);
     }
 
-    friend class guess;
+    friend class guess;                               // friend class  
 };
 
-class guess
-{
-private:
-    int input;
+class guess                                           // class guess
+{                                                       
+    private:
+    int input;                                                  
     int k;
-    random j;
+    random *j= new random;                           // dynamic initialization   
 
-public:
-    guess()
+    public:
+    guess()                                             
     {
         input = 0;
         k = 0;
     }
-    void guessing()
+    void guessing()                                                         // taking input from user
     {
         do
         {
@@ -44,6 +44,7 @@ public:
             else
                 cout << "Excellent you guessed the number would you like to play again!!" << endl;
         } while (input != j.r);
+        
         if (k < 10)
             cout << "Either you know the secret or you got lucky!!" << endl;
         else if (k == 10)
@@ -53,7 +54,8 @@ public:
             try_again();
         }
     }
-    void try_again()
+    
+    void try_again()                                                                // to ask if user want to play again
     {
         int count = 0;
     to:
@@ -95,10 +97,12 @@ public:
             goto to;
         }
     }
-    void solution()
+    
+    
+    void solution()                                                    // step by step solution to guess the number in 10 guesses
     {
-        cout<<"Our number was"<<j.r;
-        cout << "So the following steps should have been followed for the solution" << endl
+        cout<<"Our number was "<<j.r;
+        cout << " So the following steps should have been followed for the solution" << endl
              << endl;
         int low = 1, mid, high = 1000;
         int counter = 0;
@@ -125,7 +129,7 @@ public:
         cout << "So we found " << mid << " in " << counter << " attempts :)" << endl;
     }
 
-    ~guess()
+    ~guess()                                                // destructor
     {
         cout << "Game is Over" << endl;
     }
