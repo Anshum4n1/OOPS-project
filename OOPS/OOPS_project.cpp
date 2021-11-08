@@ -65,26 +65,26 @@ public:
                 {
                     cout << "enter a valid choice";
                     cnt++;
-                    goto label;
-                }
-
                 if (cnt >= 3)
                 {
                     cout << "Exiting the game!!" << endl; // win + ;😎
                     exit(0);
                 }
+                    goto label;
+                }
+
             }
         } while (input != j->r);
 
         if (k < 10)
         {
             cout << "Either you know the secret or you got lucky!!" << endl;
-            cout << "You just guessed in " << k << " attempts 🥳" << endl;
+            cout << "You just guessed in " << k << " attempts " << endl;
         }
         else if (k == 10)
         {
             cout << "haha you know the secret!!" << endl;
-            cout << "You just guessed in " << k << " attempts 🥳" << endl;
+            cout << "You just guessed in " << k << " attempts " << endl;
         }
 
         else
@@ -139,7 +139,7 @@ public:
         }
     }
 
-    void solution() // step by step solution to guess the number in 10 guesses
+    void solution()               // step by step solution to guess the number in 10 guesses
     {
 
         cout << "Our number was " << j->r;
