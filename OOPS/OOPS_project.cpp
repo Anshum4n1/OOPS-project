@@ -23,6 +23,7 @@ private:
     int input;
     int k;
     Random *j ; // dynamic initialization
+    string playername;
 
 public:
     guess()
@@ -175,12 +176,22 @@ public:
     {
         cout << "Game is Over" << endl;
     }
+    friend void details(guess &number);
 };
 
+void details(guess &number){
+    cout<<"Enter the player name\n";
+    string nam;
+    getline(cin,nam);
+    number.playername=nam;
+    cout<<"Welcome "<<number.playername<<endl;
+
+}
 int main()
 {
     // random guess;
     guess number;
+    details(number);
     number.guessing();
 
     return 0;
