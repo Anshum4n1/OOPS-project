@@ -26,7 +26,7 @@ private:
     string playername;
 
 public:
-    guess()
+    guess()//constructor
     {
         input = 0;
         k = 0;
@@ -50,9 +50,9 @@ public:
             cin >> input;
             k++;
             if (input < j->r)
-                cout << "Too low try again!!" << endl;
+                cout << "Too low try again!!" << endl;//hints
             else if (input > j->r)
-                cout << "Too high try again!!" << endl;
+                cout << "Too high try again!!" << endl;//hints
             else
             {
                 int cnt = 0;
@@ -75,7 +75,7 @@ public:
                     cnt++;
                 if (cnt >= 3)
                 {
-                    cout << "Exiting the game!!" << endl; // win + ;😎
+                    cout << "Exiting the game!!" << endl; 
                     exit(0);
                 }
                     goto label;
@@ -87,12 +87,12 @@ public:
         if (k < 10)
         {
             cout << "Either you know the secret or you got lucky!!\n" << endl;
-            cout << "You just guessed in " << k << " attempts\n " << endl;
+            cout << "You just guessed in " << k << " attempts\n " << endl;//🎉🎉
         }
         else if (k == 10)
         {
             cout << "haha you know the secret!!\n" << endl;
-            cout << "You just guessed in " << k << " attempts \n" << endl;
+            cout << "You just guessed in " << k << " attempts \n" << endl;//🥳🎊
         }
 
         else
@@ -186,7 +186,7 @@ public:
     friend void details(guess &number);
 };
 
-void details(guess &number){
+void details(guess &number){//get player name
     cout<<"Enter the player name\n";
     string nam;
     getline(cin,nam);
@@ -196,11 +196,9 @@ void details(guess &number){
 }
 int main()
 {
-    // random guess;
     guess number;
-    cin>>number;
-    // details(number);
-    // number.guessing();
+    cin>>number;//driver code when game start
+    
 
     return 0;
 }
