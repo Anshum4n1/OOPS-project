@@ -31,10 +31,17 @@ public:
         input = 0;
         k = 0;
     }
+    friend void operator >>(istream &in,guess &Number_game)
+    {
+        details(Number_game);
+        Number_game.guessing();
+    }
+
     void guessing() // taking input from user
     {
         char ch;
         j=new Random;
+        k=0;
 
         do
         {
@@ -49,10 +56,10 @@ public:
             else
             {
                 int cnt = 0;
-                cout << "Excellent you guessed the number would you like to play again!!" << endl;
+                cout << "Excellent you guessed the number would you like to play again!!\n" << endl;
 
             label://to get back to statement if user does not enter y/n
-                cout << "press Y to try again and N to exit the game";
+                cout << "press Y to try again and N to exit the game\n";
                 cin >> ch;
                 if (ch == 'Y' || ch == 'y')
                 {
@@ -64,7 +71,7 @@ public:
                 }
                 else
                 {
-                    cout << "enter a valid choice";
+                    cout << "enter a valid choice\n";
                     cnt++;
                 if (cnt >= 3)
                 {
@@ -79,13 +86,13 @@ public:
 
         if (k < 10)
         {
-            cout << "Either you know the secret or you got lucky!!" << endl;
-            cout << "You just guessed in " << k << " attempts " << endl;
+            cout << "Either you know the secret or you got lucky!!\n" << endl;
+            cout << "You just guessed in " << k << " attempts\n " << endl;
         }
         else if (k == 10)
         {
-            cout << "haha you know the secret!!" << endl;
-            cout << "You just guessed in " << k << " attempts " << endl;
+            cout << "haha you know the secret!!\n" << endl;
+            cout << "You just guessed in " << k << " attempts \n" << endl;
         }
 
         else
@@ -99,8 +106,8 @@ public:
         int count = 0;
     to:
 
-        cout << "you should be able to do better why should it take no more than 10 guesses!!" << endl;
-        cout << "Do you want to try again ??\nEnter Y/N " << endl;
+        cout << "you should be able to do better why should it take no more than 10 guesses!!\n" << endl;
+        cout << "Do you want to try again ??\nEnter Y/N \n" << endl;
         char choice;
         cin >> choice;
         if (choice == 'Y' || choice == 'y')
@@ -131,8 +138,8 @@ public:
             count++;
             if (count > 3)
             {
-                cout << "Since Player is not entering right input." << endl;
-                cout << "We are providing the solution " << endl;
+                cout << "Since Player is not entering right input.\n" << endl;
+                cout << "We are providing the solution \n" << endl;
                 solution();
                 exit(0);
             }
@@ -159,12 +166,12 @@ public:
             }
             else if (mid < j->r)
             {
-                cout << counter + 1 << ".The number is too low so take a number between " << mid + 1 << " & " << high << endl;
+                cout << counter + 1 << ".The number is too low so take a number between " << mid<< " & " << high << endl;
                 low = mid + 1;
             }
             else if (j->r < mid)
             {
-                cout << counter + 1 << ".The number is too high so take a number between " << high - 1 << " & " << mid << endl;
+                cout << counter + 1 << ".The number is too high so take a number between " << low << " & " << mid << endl;
                 high = mid - 1;
             }
             counter++;
@@ -191,8 +198,9 @@ int main()
 {
     // random guess;
     guess number;
-    details(number);
-    number.guessing();
+    cin>>number;
+    // details(number);
+    // number.guessing();
 
     return 0;
 }
